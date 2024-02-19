@@ -50,8 +50,8 @@ SELECT
 	AVG(next_deposit - deposit_timestamp) AS avg_diff
 FROM (
 	SELECT
-		deposit_timestamp,
-		LEAD(deposit_timestamp) OVER (ORDER BY deposit_timestamp) AS next_deposit
-	FROM
-		deposit
+	deposit_timestamp,
+	LEAD(deposit_timestamp) OVER (ORDER BY deposit_timestamp) AS next_deposit
+FROM
+	deposit
 ) AS deposit_diff;
