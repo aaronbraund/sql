@@ -42,16 +42,3 @@ ON
 WHERE 
 	(player.status = "ACTIVE" or player.status = "TEST")
 	AND deposit.deposit_date = '2024-02-19'
-
-SELECT
-	AVG(deposit_date)
-
-SELECT 
-	AVG(next_deposit - deposit_timestamp) AS avg_diff
-FROM (
-	SELECT
-	deposit_timestamp,
-	LEAD(deposit_timestamp) OVER (ORDER BY deposit_timestamp) AS next_deposit
-FROM
-	deposit
-) AS deposit_diff;
